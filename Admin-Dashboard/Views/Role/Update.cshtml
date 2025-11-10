@@ -1,0 +1,31 @@
+﻿@model RoleViewModel
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update Role</h1>
+
+<hr />
+<br />
+
+
+<form asp-action="Update">
+    <div asp-validation-summary="All"></div> @* List The All Errors from the form *@
+
+    <div class="form-group">
+        <label asp-for="Name" class="col-form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <br />
+
+    <input type="submit" value="Save" class="btn btn-primary" /> |
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+</form>
+
+@section ValidationScriptSection {
+@* <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+            <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script> *@
+
+    <partial name="_ValidationScriptsPartial" />
+}

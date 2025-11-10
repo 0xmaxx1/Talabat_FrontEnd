@@ -1,0 +1,21 @@
+﻿@model ProductBrand
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="alert alert-warning">Product Brand Details</h1>
+
+<div class="form-group">
+    <label asp-for="Id" class="col-form-label"></label>
+    <input asp-for="Id" class="form-control" disabled />
+</div>
+<br />
+
+<div class="form-group">
+    <label asp-for="Name" class="col-form-label"></label>
+    <input asp-for="Name" class="form-control" disabled />
+</div>
+<br />
+
+<a asp-action="Update" class="btn btn-success" asp-route-id="@Model.Id">Update</a> |
+<a asp-action="Index" class="btn btn-light">Back To List</a>

@@ -1,0 +1,59 @@
+﻿@model ProductViewModel
+
+@{
+    var Brands = new SelectList(ViewData["Brands"] as IReadOnlyList<ProductBrand>, "Id", "Name");
+
+    var Types = new SelectList(ViewData["Types"] as IReadOnlyList<ProductType>, "Id", "Name");
+}
+
+
+
+<div class="form-group">
+    <label asp-for="Name" class="col-form-label"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+<br />
+
+
+<div class="form-group">
+    <label asp-for="Description" class="col-form-label"></label>
+    <input asp-for="Description" class="form-control" />
+    <span asp-validation-for="Description" class="text-danger"></span>
+</div>
+<br />
+
+<div class="form-group">
+    <label asp-for="Price" class="col-form-label"></label>
+    <input asp-for="Price" class="form-control" type="number" />
+    <span asp-validation-for="Description" class="text-danger"></span>
+</div>
+<br />
+
+
+<div class="form-group">
+    <label asp-for="Image" class="col-form-label"></label>
+    <input asp-for="Image" class="form-control" type="file" accept="images/*" />
+    @if (!string.IsNullOrEmpty(Model.PictureURL))
+    {
+        <img src="~/@Model.PictureURL" alt="Current Image" width="150" />
+    }
+</div>
+<br />
+
+<div class="form-group">
+    <label asp-for="ProductBrand" class="col-form-label"></label>
+    <select asp-for="ProductBrandId" asp-items="Brands" class="form-control">
+        <option value="@null" selected disabled>-- Select Brand --</option>
+    </select>
+    <span asp-validation-for="ProductBrand" class="text-danger"></span>
+</div>
+<br />
+
+<div class="form-group">
+    <label asp-for="ProductType" class="col-form-label"></label>
+    <select asp-for="ProductTypeId" asp-items="Types" class="form-control">
+        <option value="@null" selected disabled>-- Select Type --</option>
+    </select>
+</div>
+<br />

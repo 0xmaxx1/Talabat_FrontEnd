@@ -1,0 +1,56 @@
+﻿@model UserRolesViewModel
+@{
+    ViewData["Title"] = "Update User";
+}
+
+<h1 class="alert alert-success">Update @Model.UserName</h1>
+
+<br />
+
+<form asp-action="Update">
+    <div asp-validation-summary="All"></div> @* List The All Errors from the form *@
+
+
+
+    <div class="form-group">
+        <input asp-for="UserId" class="form-control" hidden readonly />
+        <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label asp-for="UserName" class="col-form-label"></label>
+        <input asp-for="UserName" class="form-control" readonly />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+    <br />
+
+    <h3>Manage @Model.UserName Roles</h3>
+    <hr />
+    @for (int i = 0; i < Model.Roles.Count; i++)
+    {
+        <div>
+            <input asp-for="Roles[i].Name" hidden />
+            <input asp-for="Roles[i].IsSelected" class="form-check-input" />
+            <label asp-for="Roles[i]" class="form-check-input">@Model.Roles[i].Name</label>
+            <span asp-validation-for="Roles"></span>
+        </div>
+    }
+    <br />
+
+    @* <div class="form-group"> *@
+    @*     <label asp-for="Roles" class="col-form-label"></label> *@
+    @*     <select asp-items="@rolesList" asp-for="RoleId" class="form-control"> *@
+    @*         <option disabled value="@null">--Select Role --</option> *@
+    @*     </select> *@
+    @* </div> *@
+
+
+    <input type="submit" value="Save" class="btn btn-primary" /> |
+    <a asp-action="Index" class="btn btn-light">Back To List</a>
+</form>
+
+@section ValidationScriptSection {
+
+    <partial name="_ValidationScriptsPartial" />
+}

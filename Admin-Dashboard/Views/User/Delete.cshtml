@@ -1,0 +1,43 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Delete User";
+}
+
+<h1 class="alert alert-danger">Are you sure to Delete this @Model.DisplayName?</h1>
+<br />
+<form asp-action="Delete">
+
+    <div class="form-group">
+        <label asp-for="Id" class="col-form-label"></label>
+        <input asp-for="Id" class="form-control" readonly />
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label asp-for="UserName" class="col-form-label"></label>
+        <input asp-for="UserName" class="form-control" readonly />
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label asp-for="DisplayName" class="col-form-label"></label>
+        <input asp-for="DisplayName" class="form-control" readonly />
+    </div>
+    <br />
+
+
+    <div class="form-group">
+        <label asp-for="Email" class="col-form-label"></label>
+        <input asp-for="Email" class="form-control" readonly />
+    </div>
+    <br />
+
+    <div class="form-group">
+        <label asp-for="PhoneNumber" class="col-form-label"></label>
+        <input asp-for="PhoneNumber" class="form-control" readonly />
+    </div>
+    <br />
+
+    <input type="submit" value="Delete" class="btn btn-danger" /> |
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
